@@ -1,5 +1,6 @@
-package com.zhuxiangqing.alert.ui;
+package com.zhuxiangqing.alert.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,5 +18,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            MainFragment mainFragment = MainFragment.create();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, mainFragment, MainFragment.class.toString())
+                    .commit();
+        }
     }
 }
